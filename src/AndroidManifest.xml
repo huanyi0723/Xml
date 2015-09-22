@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.meibeike.meiphoto"
+    android:versionCode="2015090825"
+    android:versionName="1.0.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="21" />
+
+    <!-- 权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--  -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <!-- 振动器 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:name="com.meibeike.meiphoto.app.MeiApp"
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme" >
+
+        <!-- 自动申请内存  防止图片溢出    android:largeHeap="true" -->
+        <activity
+            android:name="com.meibeike.meiphoto.act.splash.SplashAct"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 新手引导 -->
+        <activity
+            android:name="com.meibeike.meiphoto.act.splash.WhatsNewAct"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="com.meibeike.meiphoto.act.login.LoginAct"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name="com.meibeike.meiphoto.act.login.LoginModeAct" />
+        <activity android:name="com.meibeike.meiphoto.act.login.LoginWaitBindAct" />
+        <activity
+            android:name="com.meibeike.meiphoto.act.login.RegisterAct"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name="com.meibeike.meiphoto.act.login.ResetAccountAct" />
+        <activity android:name="com.meibeike.meiphoto.act.login.ResetVerifyAct" />
+        <activity android:name="com.meibeike.meiphoto.act.login.ResetPasswordAct" />
+        <activity android:name="com.meibeike.meiphoto.act.login.RegisterVerifyAct" >
+        </activity>
+        <!-- home -->
+        <activity android:name="com.meibeike.meiphoto.act.home.HomeAct" />
+        <activity android:name="com.meibeike.meiphoto.act.meicast.MeiCastPicAct" />
+        <activity android:name="com.meibeike.meiphoto.act.meicast.VisitorAct" />
+        <activity android:name="com.meibeike.meiphoto.act.family.AddPhotoFromFilm" />
+        <activity
+            android:name="com.meibeike.meiphoto.act.meicast.MeiCastVideo"
+            android:launchMode="singleInstance" />
+
+        <!-- 手动上传 -->
+        <activity android:name="com.meibeike.meiphoto.act.up.ui.PhotoSelectorActivity" >
+        </activity>
+        <activity android:name="com.meibeike.meiphoto.act.up.ui.PhotoSelectorPreview" >
+        </activity>
+        <activity android:name="com.meibeike.meiphoto.act.up.ui.PhotoSelectorUpAct" >
+        </activity>
+
+        <!-- end手动上传 -->
+
+
+        <!-- 个人中心 -->
+        <activity android:name="com.meibeike.meiphoto.act.personal.PersonalAct" />
+        <activity android:name="com.meibeike.meiphoto.act.meicast.PlayAct" />
+        <activity
+            android:name="com.meibeike.meiphoto.act.meicast.CastingVideoAct"
+            android:launchMode="singleInstance" /> <!-- 正在投射界面 -->
+        <activity android:name="com.meibeike.meiphoto.act.personal.PersonalCentreAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.collection.CollectionAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.inform.PersonalInformAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.centre.EditNameAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.centre.FreespaceAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.EditEmailAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.EditPhoneAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.EditAccountVerifyAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.BindEmailAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.BindPhoneAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.BindAccountVerifyAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.SecureAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.PasswordManageAct" />
+        <activity
+            android:name="com.meibeike.meiphoto.act.personal.secure.PasswordEditTextAct"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.PasswordAffirmAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.SettingAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.download.DownloadStateAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.SpitslotAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.SpitslotContentAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.AboutAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.AboutVersionsAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.AboutHelpAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.setting.UpSelectorAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.remotecontrol.RemotecontrolAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.remotecontrol.RemotecontrolKeyInputAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.remotecontrol.KeyInputPopupWindow" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.AppStartLockAct" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.GestureVerifyActivity" />
+        <activity android:name="com.meibeike.meiphoto.act.personal.secure.GestureEditActivity" />
+
+        <!-- 分享媒体 -->
+        <activity android:name="com.meibeike.meiphoto.act.personal.scan.MipcaActivityCapture" />
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+
+            <!--
+               KakaoTalk ,分享应用的时候需要添加这个intent-filter,用于点击应用按钮跳转到APP
+               	其中android:scheme="kakaoc53410d71a7d6b96671aac1bd13a1982"是由"kakao"+APPKey               	
+            -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="kakaolink"
+                    android:scheme="kakao48d3f524e4a636b08d81b3ceb50f1003" />
+            </intent-filter>
+
+            <!--
+            	QZoneWebShareAdapter表示一个继承自cn.sharesdk.tencent.qzone.QZoneWebShareAdapter
+            	的类，这个类可以监听到页面的生命周期，也可以获QQ空间网页分享权页面的各种UI控件。 
+            	开发者可以通过继承QZoneWebShareAdapter，重写其方法，并获取各种UI来自定义这个页面的行为。
+            	
+            <meta-data android:name="QZoneWebShareAdapter" android:value="cn.sharesdk.demo.MyQZoneWebShareAdapter" />
+            -->
+            <!--
+            	Dropbox的SSO功能需要在此处添加一个对ACTION_VIEW事件的过滤器，其中的scheme是
+            	“db-”前缀再开发者应用的加上appKey。如果此过滤器不设置，则不能完成SSO功能授权
+            -->
+            <intent-filter>
+                <data android:scheme="db-7janx53ilz11gbs" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!--
+            	如果集成QQ分享，或者使用QQ客户端来进行QQ空间的分享，须要在此处添加一个对ACTION_VIEW
+            	事件的过滤器，其中的scheme是“tencent”前缀再开发者应用的加上appId。如果此过滤器不设置，
+            	则分享结束以后不能得到正确的回调
+            -->
+            <intent-filter>
+                <data android:scheme="tencent1104576669" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- end 微信分享回调 -->
+
+
+        <!-- 调用新浪原生SDK，需要注册的activity -->
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <!-- 调用新浪原生SDK，需要注册的回调activity -->
+        <activity
+            android:name="cn.sharesdk.sina.weibo.SinaActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- end 分享媒体 -->
+
+
+        <!-- 请求云棒服务 -->
+
+
+        <!-- Film -->
+        <activity android:name="com.meibeike.meiphoto.act.film.PreviewPhotoAct" />
+        <activity android:name="com.meibeike.meiphoto.act.film.FilmAblumaActivity" />
+        <activity android:name="com.meibeike.meiphoto.act.film.FilmAblumaPicturesActivity" />
+        <activity android:name="com.meibeike.meiphoto.act.film.FilmPicturesActivity" />
+
+        <service
+            android:name="com.meibeike.meiphoto.widget.service.ClientConnectService"
+            android:exported="false" />
+        <service
+            android:name="com.meibeike.meiphoto.widget.service.UploadFileService"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.meibeike.meiphoto.widget.service.UploadFileService" >
+                </action>
+            </intent-filter>
+        </service>
+        <!-- 拍照广播 -->
+        <receiver
+            android:name="com.meibeike.meiphoto.widget.service.CameraBroadCastReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.hardware.action.NEW_PICTURE" />
+                <action android:name="android.hardware.action.NEW_VIDEO" />
+                <action android:name="android.intent.action.CAMERA_BUTTON" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
